@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep all uploaded JĀGAR production media centralized in the typed asset manifest so every file remains traceable and auditable.
