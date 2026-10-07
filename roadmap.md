@@ -1,0 +1,3 @@
+- [x] Match the redesign palette to the newly uploaded visual reference.
+- [ ] Present refreshed redesign directions using the corrected palette.
+- [ ] Build the selected richer, responsive scrolling direction.
