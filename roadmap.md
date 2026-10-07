@@ -1,3 +1,3 @@
 - [x] Match the redesign palette to the newly uploaded visual reference.
-- [ ] Present refreshed redesign directions using the corrected palette.
-- [ ] Build the selected richer, responsive scrolling direction.
+- [x] Present refreshed redesign directions using the corrected palette.
+- [x] Build the richer, responsive scrolling direction directly from the approved brand board.
