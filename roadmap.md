@@ -1,0 +1,1 @@
+- [ ] Match the redesign palette to the newly uploaded visual reference.
