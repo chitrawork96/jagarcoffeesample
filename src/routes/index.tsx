@@ -49,13 +49,34 @@ function Nav() {
   </header>;
 }
 
+function ScrollAtmosphere() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const reveal = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6%" });
+    document.querySelectorAll(".reveal").forEach((element) => reveal.observe(element));
+    const onScroll = () => {
+      const available = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(available > 0 ? window.scrollY / available : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { reveal.disconnect(); window.removeEventListener("scroll", onScroll); };
+  }, []);
+  return <div className="scroll-progress" aria-hidden="true"><i style={{ transform: `scaleX(${progress})` }} /></div>;
+}
+
 function Index() {
   return <main id="top" className="jagar-site">
+    <ScrollAtmosphere />
     <Nav />
     <section className="hero" aria-labelledby="hero-title">
       <video className="hero-film" autoPlay muted loop playsInline preload="metadata" poster={a.plantationTriptych}><source src={a.plantationFilm} type="video/mp4" /></video>
       <div className="hero-veil" />
-      <div className="hero-copy">
+      <div className="hero-copy reveal is-visible">
         <p className="kicker">Indian coffee · Indian stories</p>
         <h1 id="hero-title">JĀGAR</h1>
         <p className="hero-line">Awaken every day.</p>
@@ -63,7 +84,7 @@ function Index() {
       <a href="#story" className="scroll-cue"><span>Begin the journey</span><ArrowDown aria-hidden="true" /></a>
     </section>
 
-    <section id="story" className="manifesto paper-section">
+    <section id="story" className="manifesto paper-section reveal">
       <p className="chapter">01 · A coffee story</p>
       <h2>Coffee is more<br />than a cup.</h2>
       <div className="manifesto-words" aria-label="It is a place, a person, a pause, a landscape, a story">
@@ -73,45 +94,45 @@ function Index() {
     </section>
 
     <section id="films" className="journey-section">
-      <div className="journey-heading"><p className="chapter">02 · From the land</p><h2>Where mornings<br />begin in mist.</h2></div>
-      <MediaImage src={a.plantationTriptych} alt="A coffee plantation at sunrise with rain-washed leaves and white coffee flowers" className="triptych" />
-      <div className="journey-film cherries-film"><video autoPlay muted loop playsInline preload="metadata" poster={a.cherriesStill}><source src={a.cherriesFilm} type="video/mp4" /></video><span>Cherry · ripened slowly</span></div>
-      <MediaImage src={a.cherriesStill} alt="Ripe red coffee cherries and white flowers on a sunlit branch" className="cherries-still" />
+      <div className="journey-heading reveal"><p className="chapter">02 · From the land</p><h2>Where mornings<br />begin in mist.</h2></div>
+      <div className="media-frame triptych-frame reveal"><MediaImage src={a.plantationTriptych} alt="A coffee plantation at sunrise with rain-washed leaves and white coffee flowers" className="triptych" /><span>Plantation · Leaf · Flower</span></div>
+      <div className="journey-film cherries-film reveal"><video autoPlay muted loop playsInline preload="metadata" poster={a.cherriesStill}><source src={a.cherriesFilm} type="video/mp4" /></video><span>Cherry · ripened slowly</span></div>
+      <MediaImage src={a.cherriesStill} alt="Ripe red coffee cherries and white flowers on a sunlit branch" className="cherries-still reveal" />
       <div className="journey-to-roast"><p>Leaf</p><i /><p>Flower</p><i /><p>Cherry</p><i /><p>Bean</p><i /><p>Roast</p></div>
-      <MediaImage src={a.roastedBeans} alt="Freshly roasted coffee beans spilling from a jute sack" className="beans-still" />
+      <MediaImage src={a.roastedBeans} alt="Freshly roasted coffee beans spilling from a jute sack" className="beans-still reveal" />
     </section>
 
     <section id="origins" className="worlds-section">
-      <div className="world south-world"><p className="chapter">03 · One country, two coffee worlds</p><p className="world-index">01</p><h2>South<br />India</h2><p>Warm earth. Plantation green. Brass and heritage.</p><MediaImage src={a.chikmagalurFront} alt="JĀGAR Chikmagalur single-origin coffee pouch" className="hero-pouch pouch-yellow" /></div>
-      <div className="world north-world"><p className="world-index">02</p><h2>North +<br />North-East</h2><p>Misty mountains. Botanical abundance. Bright, distinctive cups.</p><MediaImage src={a.meghalayaFront} alt="JĀGAR Meghalaya single-origin coffee pouch" className="hero-pouch pouch-pink" /></div>
+      <div className="world south-world reveal"><p className="chapter">03 · One country, two coffee worlds</p><p className="world-index">01</p><h2>South<br />India</h2><p>Warm earth. Plantation green. Brass and heritage.</p><MediaImage src={a.chikmagalurFront} alt="JĀGAR Chikmagalur single-origin coffee pouch" className="hero-pouch pouch-yellow" /></div>
+      <div className="world north-world reveal"><p className="world-index">02</p><h2>North +<br />North-East</h2><p>Misty mountains. Botanical abundance. Bright, distinctive cups.</p><MediaImage src={a.meghalayaFront} alt="JĀGAR Meghalaya single-origin coffee pouch" className="hero-pouch pouch-pink" /></div>
     </section>
 
     <section id="coffee" className="origins-scroll" aria-label="Coffee origins">
       <header><p className="chapter">04 · A journey across India</p><h2>Five origins.<br />Five bolder mornings.</h2></header>
       <div className="origin-track">
-        {origins.map((origin, index) => <article className={`origin-panel ${origin.tone}`} key={origin.name}>
+        {origins.map((origin, index) => <article className={`origin-panel ${origin.tone} reveal`} key={origin.name}>
           <span className="origin-number">0{index + 1}</span><div><h3>{origin.name}</h3><p>{origin.note}</p></div><MediaImage src={origin.image} alt={`JĀGAR ${origin.name} single-origin coffee pouch`} />
         </article>)}
       </div>
     </section>
 
-    <section className="field-notes paper-section">
+    <section className="field-notes paper-section reveal">
       <div><p className="chapter">05 · Read the land</p><h2>Every pouch<br />carries a place.</h2><p>Turn it over and the origin opens up: the people, tasting profile, altitude and ritual of a remarkable Indian landscape.</p></div>
       <figure><MediaImage src={a.chikmagalurBack} alt="Back of the JĀGAR Chikmagalur pouch with origin and brewing details" /><figcaption>Chikmagalur · Karnataka</figcaption></figure>
       <figure><MediaImage src={a.meghalayaBack} alt="Back of the JĀGAR Meghalaya pouch with origin and brewing details" /><figcaption>Meghalaya · North-East India</figcaption></figure>
     </section>
 
     <section id="ritual" className="ritual-section">
-      <MediaImage src={a.brassRitual} alt="Traditional brass coffee filter, tumbler and davara overlooking a plantation" className="ritual-bg" />
-      <div className="ritual-copy"><p className="chapter">06 · The Indian coffee ritual</p><h2>The little pauses<br />in an Indian day.</h2><p>Brass warmed by morning light. A slow pour. A familiar froth. Coffee that asks you to stay.</p></div>
-      <div className="pour-film"><video autoPlay muted loop playsInline preload="metadata" poster={a.coffeePourStill}><source src={a.filterPourFilm} type="video/mp4" /></video><p>Filter · Pour · Pause</p></div>
-      <MediaImage src={a.coffeePourStill} alt="Filter coffee being poured beside a JĀGAR enamel mug and books" className="pour-still" />
+      <MediaImage src={a.brassRitual} alt="Traditional brass coffee filter, tumbler and davara overlooking a plantation" className="ritual-bg reveal" />
+      <div className="ritual-copy reveal"><p className="chapter">06 · The Indian coffee ritual</p><h2>The little pauses<br />in an Indian day.</h2><p>Brass warmed by morning light. A slow pour. A familiar froth. Coffee that asks you to stay.</p></div>
+      <div className="pour-film reveal"><video autoPlay muted loop playsInline preload="metadata" poster={a.coffeePourStill}><source src={a.filterPourFilm} type="video/mp4" /></video><p>Filter · Pour · Pause</p></div>
+      <MediaImage src={a.coffeePourStill} alt="Filter coffee being poured beside a JĀGAR enamel mug and books" className="pour-still reveal" />
     </section>
 
     <section className="product-story">
       <p className="chapter">07 · From landscape to cup</p><h2>Carry the story home.</h2>
-      <article className="lifestyle south-life"><MediaImage src={a.coorgLifestyle} alt="JĀGAR Coorg pouch with brass filter coffee on a South Indian veranda" /><div><span>South India</span><h3>Coorg</h3><p>Rainforests. Rivers. A caramel-sweet morning.</p></div></article>
-      <article className="lifestyle north-life"><MediaImage src={a.assamLifestyle} alt="JĀGAR Assam pouch with enamel mug by the Brahmaputra landscape" /><div><span>North-East India</span><h3>Assam</h3><p>Rivers. Tea gardens. A warm, spiced morning.</p></div></article>
+      <article className="lifestyle south-life reveal"><MediaImage src={a.coorgLifestyle} alt="JĀGAR Coorg pouch with brass filter coffee on a South Indian veranda" /><div><span>South India</span><h3>Coorg</h3><p>Rainforests. Rivers. A caramel-sweet morning.</p></div></article>
+      <article className="lifestyle north-life reveal"><MediaImage src={a.assamLifestyle} alt="JĀGAR Assam pouch with enamel mug by the Brahmaputra landscape" /><div><span>North-East India</span><h3>Assam</h3><p>Rivers. Tea gardens. A warm, spiced morning.</p></div></article>
     </section>
 
     <footer><div><p className="footer-mark">JĀGAR</p><p>Awaken every day.</p></div><p>Indian coffee.<br />Indian stories.</p><a href="#top">Back to the beginning ↑</a><details><summary>Production asset audit</summary><ul>{assetAudit.map(([name, section]) => <li key={name}><span>{name}</span><span>{section} · Used</span></li>)}</ul><p>18 uploaded · 18 visible uses · 0 unused</p></details></footer>
