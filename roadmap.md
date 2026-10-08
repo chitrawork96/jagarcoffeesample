@@ -1,3 +1,4 @@
-- [x] Match the redesign palette to the newly uploaded visual reference.
-- [x] Present refreshed redesign directions using the corrected palette.
-- [x] Build the richer, responsive scrolling direction directly from the approved brand board.
+- [ ] Replace flat, empty sections with image-led layered compositions.
+- [ ] Tighten vertical pacing across desktop and mobile.
+- [ ] Keep all 15 images and 3 videos visibly integrated.
+- [ ] Verify every chapter, transition, and mobile scroll.
