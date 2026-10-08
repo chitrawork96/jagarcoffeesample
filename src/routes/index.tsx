@@ -85,12 +85,20 @@ function Index() {
     </section>
 
     <section id="story" className="manifesto paper-section reveal">
-      <p className="chapter">01 · A coffee story</p>
-      <h2>Coffee is more<br />than a cup.</h2>
-      <div className="manifesto-words" aria-label="It is a place, a person, a pause, a landscape, a story">
-        <span>A place.</span><span>A person.</span><span>A pause.</span><span>A landscape.</span><span>A story.</span>
+      <div className="manifesto-copy">
+        <p className="chapter">01 · A coffee story</p>
+        <h2>Coffee is more<br />than a cup.</h2>
+        <div className="manifesto-words" aria-label="It is a place, a person, a pause, a landscape, a story">
+          <span>A place.</span><span>A person.</span><span>A pause.</span><span>A landscape.</span><span>A story.</span>
+        </div>
+        <p className="manifesto-body">JĀGAR celebrates India’s coffee regions and the people, places and little pauses behind every cup.</p>
       </div>
-      <p className="manifesto-body">JĀGAR celebrates India’s coffee regions and the people, places and little pauses behind every cup.</p>
+      <div className="manifesto-collage" aria-label="From coffee cherry to Indian ritual">
+        <MediaImage src={a.cherriesStill} alt="Ripe coffee cherries and white flowers" />
+        <MediaImage src={a.brassRitual} alt="Traditional brass filter coffee ritual" />
+        <MediaImage src={a.roastedBeans} alt="Freshly roasted Indian coffee beans" />
+        <span>Fruit · Roast · Ritual</span>
+      </div>
     </section>
 
     <section id="films" className="journey-section">
@@ -103,8 +111,8 @@ function Index() {
     </section>
 
     <section id="origins" className="worlds-section">
-      <div className="world south-world reveal"><p className="chapter">03 · One country, two coffee worlds</p><p className="world-index">01</p><h2>South<br />India</h2><p>Warm earth. Plantation green. Brass and heritage.</p><MediaImage src={a.chikmagalurFront} alt="JĀGAR Chikmagalur single-origin coffee pouch" className="hero-pouch pouch-yellow" /></div>
-      <div className="world north-world reveal"><p className="world-index">02</p><h2>North +<br />North-East</h2><p>Misty mountains. Botanical abundance. Bright, distinctive cups.</p><MediaImage src={a.meghalayaFront} alt="JĀGAR Meghalaya single-origin coffee pouch" className="hero-pouch pouch-pink" /></div>
+      <div className="world south-world reveal"><MediaImage src={a.coorgLifestyle} alt="Coorg coffee ritual in a South Indian plantation" className="world-scene" /><div className="world-shade" /><p className="chapter">03 · One country, two coffee worlds</p><p className="world-index">01</p><h2>South<br />India</h2><p>Warm earth. Plantation green. Brass and heritage.</p><MediaImage src={a.chikmagalurFront} alt="JĀGAR Chikmagalur single-origin coffee pouch" className="hero-pouch pouch-yellow" /></div>
+      <div className="world north-world reveal"><MediaImage src={a.assamLifestyle} alt="Assam coffee beside a misty North-East landscape" className="world-scene" /><div className="world-shade" /><p className="world-index">02</p><h2>North +<br />North-East</h2><p>Misty mountains. Botanical abundance. Bright, distinctive cups.</p><MediaImage src={a.meghalayaFront} alt="JĀGAR Meghalaya single-origin coffee pouch" className="hero-pouch pouch-pink" /></div>
     </section>
 
     <section id="coffee" className="origins-scroll" aria-label="Coffee origins">
