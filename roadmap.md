@@ -1,4 +1,4 @@
-- [ ] Replace flat, empty sections with image-led layered compositions.
-- [ ] Tighten vertical pacing across desktop and mobile.
-- [ ] Keep all 15 images and 3 videos visibly integrated.
+- [x] Replace flat, empty sections with image-led layered compositions.
+- [x] Tighten vertical pacing across desktop and mobile.
+- [x] Keep all 15 images and 3 videos visibly integrated.
 - [ ] Verify every chapter, transition, and mobile scroll.
