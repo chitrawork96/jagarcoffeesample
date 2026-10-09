@@ -3,6 +3,7 @@ import { ArrowDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { assetAudit, jagarAssets as a } from "@/assets/jagar/manifest";
+import fusionVerandah from "@/assets/jagar/fusion-verandah.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -104,7 +105,7 @@ function Index() {
     <section id="films" className="journey-section">
       <div className="journey-heading reveal"><p className="chapter">02 · From the land</p><h2>Where mornings<br />begin in mist.</h2></div>
       <div className="media-frame triptych-frame reveal"><MediaImage src={a.plantationTriptych} alt="A coffee plantation at sunrise with rain-washed leaves and white coffee flowers" className="triptych" /><span>Plantation · Leaf · Flower</span></div>
-      <div className="journey-film cherries-film reveal"><video autoPlay muted loop playsInline preload="metadata" poster={a.cherriesStill}><source src={a.cherriesFilm} type="video/mp4" /></video><span>Cherry · ripened slowly</span></div>
+      <div className="journey-film cherries-film reveal"><video autoPlay muted loop playsInline preload="metadata" poster={a.cherriesStill}><source src={a.cherriesFilm} type="video/mp4" /></video><div className="film-caption"><span>Film 02</span><p>Cherry · ripened slowly</p></div></div>
       <MediaImage src={a.cherriesStill} alt="Ripe red coffee cherries and white flowers on a sunlit branch" className="cherries-still reveal" />
       <div className="journey-to-roast"><p>Leaf</p><i /><p>Flower</p><i /><p>Cherry</p><i /><p>Bean</p><i /><p>Roast</p></div>
       <MediaImage src={a.roastedBeans} alt="Freshly roasted coffee beans spilling from a jute sack" className="beans-still reveal" />
@@ -133,7 +134,7 @@ function Index() {
     <section id="ritual" className="ritual-section">
       <MediaImage src={a.brassRitual} alt="Traditional brass coffee filter, tumbler and davara overlooking a plantation" className="ritual-bg reveal" />
       <div className="ritual-copy reveal"><p className="chapter">06 · The Indian coffee ritual</p><h2>The little pauses<br />in an Indian day.</h2><p>Brass warmed by morning light. A slow pour. A familiar froth. Coffee that asks you to stay.</p></div>
-      <div className="pour-film reveal"><video autoPlay muted loop playsInline preload="metadata" poster={a.coffeePourStill}><source src={a.filterPourFilm} type="video/mp4" /></video><p>Filter · Pour · Pause</p></div>
+      <div className="pour-film reveal"><video autoPlay muted loop playsInline preload="metadata" poster={a.coffeePourStill}><source src={a.filterPourFilm} type="video/mp4" /></video><div className="film-caption"><span>Film 03</span><p>Filter · Pour · Pause</p></div></div>
       <MediaImage src={a.coffeePourStill} alt="Filter coffee being poured beside a JĀGAR enamel mug and books" className="pour-still reveal" />
     </section>
 
@@ -141,6 +142,17 @@ function Index() {
       <p className="chapter">07 · From landscape to cup</p><h2>Carry the story home.</h2>
       <article className="lifestyle south-life reveal"><MediaImage src={a.coorgLifestyle} alt="JĀGAR Coorg pouch with brass filter coffee on a South Indian veranda" /><div><span>South India</span><h3>Coorg</h3><p>Rainforests. Rivers. A caramel-sweet morning.</p></div></article>
       <article className="lifestyle north-life reveal"><MediaImage src={a.assamLifestyle} alt="JĀGAR Assam pouch with enamel mug by the Brahmaputra landscape" /><div><span>North-East India</span><h3>Assam</h3><p>Rivers. Tea gardens. A warm, spiced morning.</p></div></article>
+    </section>
+
+    <section className="fusion-finale" aria-labelledby="finale-title">
+      <img src={fusionVerandah} alt="A fusion verandah bringing together North-East textiles, South Indian brass coffee equipment and an Indian coffee ritual" loading="lazy" decoding="async" width={1920} height={1152} />
+      <div className="finale-veil" />
+      <div className="finale-copy reveal">
+        <p className="chapter">08 · One Indian morning</p>
+        <h2 id="finale-title">Many landscapes.<br />One awakening.</h2>
+        <p>From the brass ritual of the South to the woven warmth of the North-East, every origin meets at the table.</p>
+      </div>
+      <p className="finale-mark" aria-hidden="true">JĀGAR</p>
     </section>
 
     <footer><div><p className="footer-mark">JĀGAR</p><p>Awaken every day.</p></div><p>Indian coffee.<br />Indian stories.</p><a href="#top">Back to the beginning ↑</a><details><summary>Production asset audit</summary><ul>{assetAudit.map(([name, section]) => <li key={name}><span>{name}</span><span>{section} · Used</span></li>)}</ul><p>18 uploaded · 18 visible uses · 0 unused</p></details></footer>

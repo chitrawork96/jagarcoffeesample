@@ -3,6 +3,6 @@
 - [x] Keep all 15 images and 3 videos visibly integrated.
 - [ ] Verify every chapter, transition, and mobile scroll.
 
-- [ ] Integrate three newly uploaded videos into the continuous scroll.
-- [ ] Add an immersive North-East and South Indian fusion verandah finale.
-- [ ] Add continuous cinematic transitions between every chapter.
+- [x] Make all three uploaded videos prominent in the continuous scroll.
+- [x] Add an immersive North-East and South Indian fusion verandah finale.
+- [x] Add continuous cinematic transitions between every chapter.
