@@ -16,6 +16,7 @@ import assamLifestyle from "./ChatGPT_Image_Oct_6_2026_03_26_01_PM.png.asset.jso
 import cherriesFilm from "./cherries.mp4.asset.json";
 import filterPourFilm from "./filter-pour.mp4.asset.json";
 import plantationFilm from "./plantation.mp4.asset.json";
+import fusionVerandah from "./fusion-verandah.jpg";
 
 export const jagarAssets = {
   chikmagalurFront: chikmagalurFront.url,
@@ -36,6 +37,7 @@ export const jagarAssets = {
   cherriesFilm: cherriesFilm.url,
   filterPourFilm: filterPourFilm.url,
   plantationFilm: plantationFilm.url,
+  fusionVerandah,
 } as const;
 
 export const assetAudit = [
@@ -57,4 +59,5 @@ export const assetAudit = [
   ["Cherry film", "Coffee journey"],
   ["Filter pour film", "Indian ritual"],
   ["Plantation film", "Cinematic opening"],
+  ["Fusion verandah", "One Indian morning finale"],
 ] as const;

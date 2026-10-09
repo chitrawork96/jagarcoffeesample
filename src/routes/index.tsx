@@ -3,7 +3,6 @@ import { ArrowDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { assetAudit, jagarAssets as a } from "@/assets/jagar/manifest";
-import fusionVerandah from "@/assets/jagar/fusion-verandah.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -145,7 +144,7 @@ function Index() {
     </section>
 
     <section className="fusion-finale" aria-labelledby="finale-title">
-      <img src={fusionVerandah} alt="A fusion verandah bringing together North-East textiles, South Indian brass coffee equipment and an Indian coffee ritual" loading="lazy" decoding="async" width={1920} height={1152} />
+      <img src={a.fusionVerandah} alt="A fusion verandah bringing together North-East textiles, South Indian brass coffee equipment and an Indian coffee ritual" loading="lazy" decoding="async" width={1920} height={1152} />
       <div className="finale-veil" />
       <div className="finale-copy reveal">
         <p className="chapter">08 · One Indian morning</p>
@@ -155,6 +154,6 @@ function Index() {
       <p className="finale-mark" aria-hidden="true">JĀGAR</p>
     </section>
 
-    <footer><div><p className="footer-mark">JĀGAR</p><p>Awaken every day.</p></div><p>Indian coffee.<br />Indian stories.</p><a href="#top">Back to the beginning ↑</a><details><summary>Production asset audit</summary><ul>{assetAudit.map(([name, section]) => <li key={name}><span>{name}</span><span>{section} · Used</span></li>)}</ul><p>18 uploaded · 18 visible uses · 0 unused</p></details></footer>
+    <footer><div><p className="footer-mark">JĀGAR</p><p>Awaken every day.</p></div><p>Indian coffee.<br />Indian stories.</p><a href="#top">Back to the beginning ↑</a><details><summary>Production asset audit</summary><ul>{assetAudit.map(([name, section]) => <li key={name}><span>{name}</span><span>{section} · Used</span></li>)}</ul><p>18 uploaded + 1 bespoke finale · all visible · 0 unused</p></details></footer>
   </main>;
 }
