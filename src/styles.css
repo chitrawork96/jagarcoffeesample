@@ -44,10 +44,10 @@ h1,h2,h3,p { margin: 0; }
 .nav-cta { justify-self: end; }.menu-trigger,.mobile-menu { display: none; }
 
 .hero { position: relative; height: 100svh; min-height: 620px; color: var(--primary-foreground); display: grid; place-items: center; isolation: isolate; }
-.hero-film,.hero-veil { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero-film { z-index: -2; animation: heroScale 14s ease-out infinite alternate; }.hero-veil { z-index: -1; background: linear-gradient(to bottom,color-mix(in oklab,var(--maroon) 35%,transparent),color-mix(in oklab,var(--coffee) 65%,transparent)); }
+.hero-poster,.hero-film,.hero-veil { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-poster { z-index: -3; }.hero-film { z-index: -2; animation: heroScale 14s ease-out infinite alternate; }.hero-veil { z-index: -1; background: linear-gradient(to bottom,color-mix(in oklab,var(--maroon) 35%,transparent),color-mix(in oklab,var(--coffee) 65%,transparent)); }
 .hero-copy { text-align: center; padding: 1.5rem; text-shadow: 0 3px 28px color-mix(in oklab,var(--coffee) 70%,transparent); }
-.hero-copy h1 { font-size: clamp(8rem,24vw,21rem); line-height: .72; margin: .12em 0 .08em; color: var(--cream); text-shadow: .025em .025em 0 var(--maroon); }.hero-line { font-family: var(--sans); font-size: clamp(1.25rem,2vw,2rem); font-weight: 500; }
+.hero-copy .kicker { position:relative; z-index:2; }.hero-copy h1 { font-size: clamp(8rem,24vw,21rem); line-height: .72; margin: .18em 0 .08em; color: var(--cream); text-shadow: .025em .025em 0 var(--maroon); }.hero-line { font-family: var(--sans); font-size: clamp(1.25rem,2vw,2rem); font-weight: 500; }
 .scroll-cue { position: absolute; bottom: 2rem; display: flex; gap: .7rem; align-items: center; font-size: .7rem; text-transform: uppercase; letter-spacing: .16em; }.scroll-cue svg { width: 15px; animation: drift 1.8s ease-in-out infinite; }
 
 .paper-section { background-color: var(--cream); background-image: linear-gradient(90deg,color-mix(in oklab,var(--maroon) 3%,transparent) 1px,transparent 1px),repeating-linear-gradient(0deg,color-mix(in oklab,var(--coffee) 3%,transparent),color-mix(in oklab,var(--coffee) 3%,transparent) 1px,transparent 1px,transparent 5px); background-size: 32px 100%,auto; }
