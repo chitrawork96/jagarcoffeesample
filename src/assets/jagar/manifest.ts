@@ -9,6 +9,7 @@ import coorgFront from "./ChatGPT_Image_Oct_6_2026_03_24_55_PM.webp.asset.json";
 import cherriesStill from "./ChatGPT_Image_Oct_6_2026_03_25_06_PM.webp.asset.json";
 import roastedBeans from "./ChatGPT_Image_Oct_6_2026_03_25_13_PM.webp.asset.json";
 import plantationTriptych from "./ChatGPT_Image_Oct_6_2026_03_25_23_PM.png.asset.json";
+import plantationOpening from "./plantation-opening.webp.asset.json";
 import brassRitual from "./ChatGPT_Image_Oct_6_2026_03_25_32_PM.png.asset.json";
 import coffeePourStill from "./ChatGPT_Image_Oct_6_2026_03_25_42_PM.png.asset.json";
 import coorgLifestyle from "./ChatGPT_Image_Oct_6_2026_03_25_51_PM.png.asset.json";
@@ -30,6 +31,7 @@ export const jagarAssets = {
   cherriesStill: cherriesStill.url,
   roastedBeans: roastedBeans.url,
   plantationTriptych: plantationTriptych.url,
+  plantationOpening: plantationOpening.url,
   brassRitual: brassRitual.url,
   coffeePourStill: coffeePourStill.url,
   coorgLifestyle: coorgLifestyle.url,

@@ -14,6 +14,9 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [
+      { rel: "preload", as: "image", href: a.plantationOpening, fetchPriority: "high" },
+    ],
   }),
   component: Index,
 });
@@ -74,7 +77,8 @@ function Index() {
     <ScrollAtmosphere />
     <Nav />
     <section className="hero" aria-labelledby="hero-title">
-      <video className="hero-film" autoPlay muted loop playsInline preload="metadata" poster={a.plantationTriptych}><source src={a.plantationFilm} type="video/mp4" /></video>
+      <img className="hero-poster" src={a.plantationOpening} alt="Indian coffee plantation at sunrise" fetchPriority="high" decoding="sync" />
+      <video className="hero-film" autoPlay muted loop playsInline preload="none" poster={a.plantationOpening}><source src={a.plantationFilm} type="video/mp4" /></video>
       <div className="hero-veil" />
       <div className="hero-copy reveal is-visible">
         <p className="kicker">Indian coffee · Indian stories</p>
