@@ -16,7 +16,7 @@ import assamLifestyle from "./ChatGPT_Image_Oct_6_2026_03_26_01_PM.png.asset.jso
 import cherriesFilm from "./cherries.mp4.asset.json";
 import filterPourFilm from "./filter-pour.mp4.asset.json";
 import plantationFilm from "./plantation.mp4.asset.json";
-import fusionVerandah from "./fusion-verandah-palette.png";
+import fusionVerandah from "./fusion-verandah-corrected.png";
 
 export const jagarAssets = {
   chikmagalurFront: chikmagalurFront.url,
