@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { assetAudit, jagarAssets as a } from "@/assets/jagar/manifest";
 
@@ -53,23 +53,61 @@ function Nav() {
 }
 
 function ScrollAtmosphere() {
-  const [progress, setProgress] = useState(0);
+  const progressBar = useRef<HTMLElement>(null);
   useEffect(() => {
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
     const reveal = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        entry.target.classList.remove("reveal-pending");
+        reveal.unobserve(entry.target);
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -6%" });
-    document.querySelectorAll(".reveal").forEach((element) => reveal.observe(element));
-    const onScroll = () => {
-      const available = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(available > 0 ? window.scrollY / available : 0);
+    }, { threshold: 0, rootMargin: "0px 0px 80px" });
+    elements.forEach((element) => {
+      if (motion.matches || element.getBoundingClientRect().top < window.innerHeight || element.classList.contains("is-visible")) {
+        element.classList.add("is-visible");
+        return;
+      }
+      element.classList.add("reveal-pending");
+      reveal.observe(element);
+    });
+    const showAll = () => {
+      if (!motion.matches) return;
+      reveal.disconnect();
+      elements.forEach((element) => {
+        element.classList.add("is-visible");
+        element.classList.remove("reveal-pending");
+      });
     };
-    onScroll();
+    let frame = 0;
+    const updateProgress = () => {
+      frame = 0;
+      const available = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = available > 0 ? Math.max(0, Math.min(1, window.scrollY / available)) : 0;
+      if (progressBar.current) progressBar.current.style.transform = `scaleX(${progress})`;
+    };
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateProgress);
+    };
+    const sizeObserver = new ResizeObserver(onScroll);
+    sizeObserver.observe(document.documentElement);
+    updateProgress();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => { reveal.disconnect(); window.removeEventListener("scroll", onScroll); };
+    window.addEventListener("resize", onScroll, { passive: true });
+    motion.addEventListener("change", showAll);
+    return () => {
+      reveal.disconnect();
+      sizeObserver.disconnect();
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      motion.removeEventListener("change", showAll);
+      elements.forEach((element) => element.classList.remove("reveal-pending"));
+    };
   }, []);
-  return <div className="scroll-progress" aria-hidden="true"><i style={{ transform: `scaleX(${progress})` }} /></div>;
+  return <div className="scroll-progress" aria-hidden="true"><i ref={progressBar} /></div>;
 }
 
 function Index() {
@@ -88,8 +126,8 @@ function Index() {
       <a href="#story" className="scroll-cue"><span>Begin the journey</span><ArrowDown aria-hidden="true" /></a>
     </section>
 
-    <section id="story" className="manifesto paper-section reveal">
-      <div className="manifesto-copy">
+    <section id="story" className="manifesto paper-section">
+      <div className="manifesto-copy reveal">
         <p className="chapter">01 · A coffee story</p>
         <h2>Coffee is more<br />than a cup.</h2>
         <div className="manifesto-words" aria-label="It is a place, a person, a pause, a landscape, a story">
@@ -97,7 +135,7 @@ function Index() {
         </div>
         <p className="manifesto-body">JĀGAR celebrates India’s coffee regions and the people, places and little pauses behind every cup.</p>
       </div>
-      <div className="manifesto-collage" aria-label="From coffee cherry to Indian ritual">
+      <div className="manifesto-collage reveal" aria-label="From coffee cherry to Indian ritual">
         <MediaImage src={a.cherriesStill} alt="Ripe coffee cherries and white flowers" />
         <MediaImage src={a.brassRitual} alt="Traditional brass filter coffee ritual" />
         <MediaImage src={a.roastedBeans} alt="Freshly roasted Indian coffee beans" />
@@ -142,10 +180,10 @@ function Index() {
       </div>
     </section>
 
-    <section className="field-notes paper-section reveal">
-      <div><p className="chapter">05 · Read the land</p><h2>Every pouch<br />carries a place.</h2><p>Turn it over and the origin opens up: the people, tasting profile, altitude and ritual of a remarkable Indian landscape.</p></div>
-      <figure><MediaImage src={a.chikmagalurBack} alt="Back of the JĀGAR Chikmagalur pouch with origin and brewing details" /><figcaption>Chikmagalur · Karnataka</figcaption></figure>
-      <figure><MediaImage src={a.meghalayaBack} alt="Back of the JĀGAR Meghalaya pouch with origin and brewing details" /><figcaption>Meghalaya · North-East India</figcaption></figure>
+    <section className="field-notes paper-section">
+      <div className="reveal"><p className="chapter">05 · Read the land</p><h2>Every pouch<br />carries a place.</h2><p>Turn it over and the origin opens up: the people, tasting profile, altitude and ritual of a remarkable Indian landscape.</p></div>
+      <figure className="reveal"><MediaImage src={a.chikmagalurBack} alt="Back of the JĀGAR Chikmagalur pouch with origin and brewing details" /><figcaption>Chikmagalur · Karnataka</figcaption></figure>
+      <figure className="reveal"><MediaImage src={a.meghalayaBack} alt="Back of the JĀGAR Meghalaya pouch with origin and brewing details" /><figcaption>Meghalaya · North-East India</figcaption></figure>
     </section>
 
     <section id="ritual" className="ritual-section">
