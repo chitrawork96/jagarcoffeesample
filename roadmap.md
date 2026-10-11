@@ -6,3 +6,5 @@
 - [x] Make all three uploaded videos prominent in the continuous scroll.
 - [x] Add an immersive North-East and South Indian fusion verandah finale.
 - [x] Add continuous cinematic transitions between every chapter.
+- [ ] Replace displayed Wayanad packet with the new upload, preserving its predecessor.
+- [ ] Give the footer a coffee-inspired photographic finish and verify both changes.
