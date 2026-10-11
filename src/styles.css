@@ -87,6 +87,13 @@ h1,h2,h3,p { margin: 0; }
 
 footer { padding: 7rem 5vw 3rem; background: var(--maroon); color: var(--cream); display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; align-items: end; }.footer-mark { font-size: clamp(5rem,12vw,12rem); line-height: .75; }.footer-mark+ p { font-family: var(--display); font-size: 1.6rem; margin-top: 1.5rem; } footer>a { font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; } footer details { grid-column: 1/-1; border-top: 1px solid color-mix(in oklab,var(--cream) 25%,transparent); padding-top: 1.5rem; font-size: .7rem; } footer summary { cursor: pointer; text-transform: uppercase; letter-spacing: .14em; } footer ul { list-style: none; padding: 1rem 0; columns: 2; } footer li { display: flex; justify-content: space-between; gap: 1rem; padding: .4rem 1rem .4rem 0; opacity: .75; }
 
+.coffee-footer { position:relative; isolation:isolate; overflow:hidden; min-height:38rem; padding-top:8rem; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:2.5rem; }
+.footer-coffee-image,.footer-coffee-veil { position:absolute; inset:0; width:100%; height:100%; z-index:-1; }
+.footer-coffee-image { object-fit:cover; object-position:center 58%; }
+.footer-coffee-veil { background:linear-gradient(90deg,color-mix(in oklab,var(--maroon) 94%,transparent),color-mix(in oklab,var(--maroon) 65%,transparent) 48%,color-mix(in oklab,var(--coffee) 20%,transparent)),linear-gradient(0deg,var(--maroon),transparent 75%); }
+.coffee-footer .footer-brand { grid-column:1; }.coffee-footer .footer-story { grid-column:1; line-height:1.6; font-size:1.15rem; }.coffee-footer .footer-return { grid-column:1; justify-self:start; border-bottom:1px solid var(--gold); padding-bottom:.8rem; }.coffee-footer details { margin-top:2rem; }
+@media(max-width:800px) { .coffee-footer { grid-template-columns:minmax(0,1fr); min-height:42rem; gap:2rem; padding-top:5rem; }.footer-coffee-image { object-position:65% center; }.footer-coffee-veil { background:linear-gradient(90deg,color-mix(in oklab,var(--maroon) 88%,transparent),color-mix(in oklab,var(--coffee) 38%,transparent)),linear-gradient(0deg,var(--maroon),transparent 80%); } }
+
 @keyframes heroScale { from { transform: scale(1); } to { transform: scale(1.05); } } @keyframes drift { 50% { transform: translateY(7px); } } @keyframes finaleBreathe { from { transform:scale(1); } to { transform:scale(1.065); } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
 
