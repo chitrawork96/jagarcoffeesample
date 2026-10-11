@@ -106,12 +106,12 @@ function Index() {
     </section>
 
     <section id="about" className="about-section">
-      <div className="about-image reveal">
+      <div className="about-image reveal is-visible">
         <MediaImage src={a.plantationTriptych} alt="Indian coffee landscapes, rain-washed leaves and coffee flowers encountered along the journey" />
         <span>Meghalaya · Assam · Coorg · Wayanad · Chikmagalur</span>
       </div>
-      <div className="about-copy reveal">
-        <p className="chapter">02 · How JĀGAR began</p>
+      <div className="about-copy reveal is-visible">
+        <p className="chapter">Our beginning · How JĀGAR began</p>
         <h2>From trail<br />to table.</h2>
         <p>JĀGAR began on a trek through Meghalaya and Assam, where cups shared along misty trails revealed how deeply coffee belongs to a place.</p>
         <p>Travelling south through Coorg, Wayanad and Chikmagalur brought another expression of Indian coffee—plantation mornings, patient rituals and generations of growing knowledge.</p>
@@ -120,7 +120,7 @@ function Index() {
     </section>
 
     <section id="films" className="journey-section">
-      <div className="journey-heading reveal"><p className="chapter">03 · From the land</p><h2>Where mornings<br />begin in mist.</h2></div>
+      <div className="journey-heading reveal"><p className="chapter">02 · From the land</p><h2>Where mornings<br />begin in mist.</h2></div>
       <div className="media-frame triptych-frame reveal"><MediaImage src={a.plantationTriptych} alt="A coffee plantation at sunrise with rain-washed leaves and white coffee flowers" className="triptych" /><span>Plantation · Leaf · Flower</span></div>
       <div className="journey-film cherries-film reveal"><video autoPlay muted loop playsInline preload="metadata" poster={a.cherriesStill}><source src={a.cherriesFilm} type="video/mp4" /></video><div className="film-caption"><span>Film 02</span><p>Cherry · ripened slowly</p></div></div>
       <MediaImage src={a.cherriesStill} alt="Ripe red coffee cherries and white flowers on a sunlit branch" className="cherries-still reveal" />
