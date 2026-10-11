@@ -42,7 +42,7 @@ function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const links = [["Coffee", "#coffee"], ["Origins", "#origins"], ["Our Story", "#story"], ["The Ritual", "#ritual"], ["Films", "#films"]];
+  const links = [["Coffee", "#coffee"], ["Origins", "#origins"], ["About Us", "#about"], ["The Ritual", "#ritual"], ["Films", "#films"]];
   return <header className={`site-nav ${scrolled ? "is-scrolled" : ""}`}>
     <a className="nav-mark" href="#top" aria-label="JĀGAR home">JĀGAR</a>
     <nav className="nav-links" aria-label="Main navigation">{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
@@ -102,6 +102,20 @@ function Index() {
         <MediaImage src={a.brassRitual} alt="Traditional brass filter coffee ritual" />
         <MediaImage src={a.roastedBeans} alt="Freshly roasted Indian coffee beans" />
         <span>Fruit · Roast · Ritual</span>
+      </div>
+    </section>
+
+    <section id="about" className="about-section">
+      <div className="about-image reveal is-visible">
+        <MediaImage src={a.plantationTriptych} alt="Indian coffee landscapes, rain-washed leaves and coffee flowers encountered along the journey" />
+        <span>Meghalaya · Assam · Coorg · Wayanad · Chikmagalur</span>
+      </div>
+      <div className="about-copy reveal is-visible">
+        <p className="chapter">Our beginning · How JĀGAR began</p>
+        <h2>From trail<br />to table.</h2>
+        <p>JĀGAR began on a trek through Meghalaya and Assam, where cups shared along misty trails revealed how deeply coffee belongs to a place.</p>
+        <p>Travelling south through Coorg, Wayanad and Chikmagalur brought another expression of Indian coffee—plantation mornings, patient rituals and generations of growing knowledge.</p>
+        <p>The idea became simple: bring these remarkable origins together on one platform. Today, JĀGAR works closely with actual planters, learning from the land and the people behind every harvest, so each packet carries an honest story from origin to cup.</p>
       </div>
     </section>
 
