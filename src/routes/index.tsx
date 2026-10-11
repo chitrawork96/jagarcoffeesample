@@ -172,6 +172,13 @@ function Index() {
       <p className="finale-mark" aria-hidden="true">JĀGAR</p>
     </section>
 
-    <footer><div><p className="footer-mark">JĀGAR</p><p>Awaken every day.</p></div><p>Indian coffee.<br />Indian stories.</p><a href="#top">Back to the beginning ↑</a><details><summary>Production asset audit</summary><ul>{assetAudit.map(([name, section]) => <li key={name}><span>{name}</span><span>{section} · Used</span></li>)}</ul><p>18 uploaded + 1 bespoke finale · all visible · 0 unused</p></details></footer>
+    <footer className="coffee-footer">
+      <MediaImage src={a.coffeePourStill} alt="A warm Indian coffee pour beside a JĀGAR mug" className="footer-coffee-image" />
+      <div className="footer-coffee-veil" aria-hidden="true" />
+      <div className="footer-brand"><p className="footer-mark">JĀGAR</p><p>Awaken every day.</p></div>
+      <p className="footer-story">Indian coffee.<br />Indian stories.</p>
+      <a href="#top" className="footer-return">Back to the beginning ↑</a>
+      <details><summary>Production asset audit</summary><ul>{assetAudit.map(([name, section]) => <li key={name}><span>{name}</span><span>{section} · Used</span></li>)}</ul><p>18 current uploaded assets + 1 bespoke finale · all visible · original Wayanad packet preserved in archive</p></details>
+    </footer>
   </main>;
 }

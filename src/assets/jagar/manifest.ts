@@ -4,7 +4,8 @@ import mizoramFront from "./ChatGPT_Image_Oct_6_2026_03_24_01_PM.webp.asset.json
 import assamFront from "./ChatGPT_Image_Oct_6_2026_03_24_15_PM.webp.asset.json";
 import meghalayaFront from "./ChatGPT_Image_Oct_6_2026_03_24_24_PM.webp.asset.json";
 import meghalayaBack from "./ChatGPT_Image_Oct_6_2026_03_24_34_PM.webp.asset.json";
-import wayanadFront from "./ChatGPT_Image_Oct_6_2026_03_24_45_PM.webp.asset.json";
+import wayanadOriginal from "./ChatGPT_Image_Oct_6_2026_03_24_45_PM.webp.asset.json";
+import wayanadFront from "./wayanad-pouch-updated.png.asset.json";
 import coorgFront from "./ChatGPT_Image_Oct_6_2026_03_24_55_PM.webp.asset.json";
 import cherriesStill from "./ChatGPT_Image_Oct_6_2026_03_25_06_PM.webp.asset.json";
 import roastedBeans from "./ChatGPT_Image_Oct_6_2026_03_25_13_PM.webp.asset.json";
@@ -49,7 +50,7 @@ export const assetAudit = [
   ["Assam pouch front", "North-East origins"],
   ["Meghalaya pouch front", "North-East origins"],
   ["Meghalaya pouch back", "Origin field notes"],
-  ["Wayanad pouch front", "South India origins"],
+  ["Wayanad updated pouch front", "South India origins"],
   ["Coorg pouch front", "South India origins"],
   ["Coffee cherries", "From fruit"],
   ["Roasted beans", "To roast"],
@@ -62,4 +63,8 @@ export const assetAudit = [
   ["Filter pour film", "Indian ritual"],
   ["Plantation film", "Cinematic opening"],
   ["Fusion verandah", "One Indian morning finale"],
+] as const;
+
+export const archivedAssets = [
+  { name: "Original Wayanad pouch front", url: wayanadOriginal.url, reason: "Preserved original; display replaced at Diana’s request" },
 ] as const;
