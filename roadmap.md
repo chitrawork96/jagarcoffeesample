@@ -8,3 +8,5 @@
 - [x] Add continuous cinematic transitions between every chapter.
 - [x] Replace displayed Wayanad packet with the new upload, preserving its predecessor.
 - [x] Give the footer a coffee-inspired photographic finish and verify both changes.
+- [x] Audit scrolling transitions and remove expensive blur, late reveals, and scroll-triggered rendering.
+- [ ] Verify smoother transitions, anchor navigation, and reduced-motion visibility across screen sizes.

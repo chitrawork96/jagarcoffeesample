@@ -11,3 +11,4 @@
 
 - Keep all uploaded JĀGAR production media centralized in the typed asset manifest so every file remains traceable and auditable.
 - Record explicitly superseded media in the manifest’s archive separately from active display assets so originals stay traceable without misreporting visible usage.
+- Enhance scrolling with one-shot, below-fold content reveals and frame-batched progress updates; keep section backgrounds and no-script/reduced-motion content visible to avoid blank chapters and costly repaints.
