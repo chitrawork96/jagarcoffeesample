@@ -1,16 +1,23 @@
-# Jagarcoffeesample
+# JĀGAR: Indian Coffee Brand
 
-JĀGAR ASSET BATCH 01 — These are production assets, not references. Inventory every file, preserve the original files, and integrate every single image into the website. Do not leave any image unused. Do not generate replacements. Do not finalize the layout until every image in this batch has a visible storytelling role.JĀGAR ASSET BATCH 02 — Add these to the existing asset inventory. Do not remove or replace Batch 01. Integrate every new image into the continuous scrolling story. Re-check Batch 01 and Batch 02 so the total number of unused assets is ZERO.
+**Self-initiated · AI-made brand and creative sample**
 
-This project was built with [Lovable](https://lovable.dev).
+JĀGAR is a single-origin Indian coffee brand I built from scratch to show end-to-end brand and ad creative work: "Indian coffee, Indian stories."
 
-**Live app**: https://jagarcoffeesample.lovable.app
+🔗 **Live site:** [jagarcoffeesample.lovable.app](https://jagarcoffeesample.lovable.app)
 
-## Build with Lovable
+## What I built
+- Brand positioning and story
+- Visual identity and packaging for six regional coffee origins
+- Static ad creatives for Meta and Instagram
+- AI-made UGC-style video ads and short brand films (no on-camera creators)
+- Brand website built with Lovable
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/e7c63314-a336-40f1-8fff-9f71efb50a63).
+## Built with
+Lovable · TypeScript · Vite · ChatGPT · Claude · Gemini
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
+---
+Part of my portfolio: [chitramarketingportfolio.netlify.app](https://chitramarketingportfolio.netlify.app)
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
 - **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
